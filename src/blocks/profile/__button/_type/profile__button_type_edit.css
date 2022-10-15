@@ -1,0 +1,25 @@
+.profile__button_type_edit {
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  background-image: url("../../../../images/Vector1.svg");
+  border: #fff 1px solid;
+  align-self: center;
+}
+
+.profile__button_type_edit:hover {
+  opacity: 0.6;
+}
+
+@media screen and (min-width: 703px) {
+  .profile__button_type_edit {
+    margin-top: 5px;
+  }
+}
+
+@media screen and (max-width: 702px) {
+  .profile__button_type_edit {
+    width: 18px;
+    height: 18px;
+  }
+}

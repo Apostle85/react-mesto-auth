@@ -1,0 +1,18 @@
+.header__ref {
+    margin: 0;
+    font-family: 'Inter', "Arial", sans-serif;
+    text-decoration: none;
+    align-self: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #FFFFFF;
+    text-align: right;
+    transition: opacity 0.2s ease-in;
+    cursor: pointer;
+}
+
+.header__ref:hover {
+    opacity: 0.6;
+}

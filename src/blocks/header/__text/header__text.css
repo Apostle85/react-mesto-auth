@@ -1,0 +1,13 @@
+.header__text {
+    margin: 0;
+    font-family: 'Inter', "Arial", sans-serif;
+    align-self: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #FFFFFF;
+    text-align: right;
+    transition: opacity 0.2s ease-in;
+    cursor: pointer;
+}

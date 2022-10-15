@@ -1,0 +1,24 @@
+.popup {
+  display: flex;
+  width: 100%;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  animation: fade_out_show 0.5s;
+}
+
+@keyframes fade_out_show {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

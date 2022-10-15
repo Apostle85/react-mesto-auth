@@ -1,0 +1,17 @@
+.form__ref {
+    margin: 15px 0 0;
+    font-family: 'Inter', "Arial", sans-serif;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+    text-align: center;
+    color: #FFFFFF;
+    transition: opacity 0.2s ease-in;
+    cursor: pointer;
+}
+
+.form__ref:hover {
+    opacity: 0.6;
+}

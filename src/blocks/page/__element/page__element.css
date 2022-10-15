@@ -1,0 +1,21 @@
+.page__element {
+  max-width: 1280px;
+}
+
+@media screen and (min-width: 941px) {
+  .page__element {
+    min-width: 880px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .page__element {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .page__element {
+    margin: 0;
+  }
+}
