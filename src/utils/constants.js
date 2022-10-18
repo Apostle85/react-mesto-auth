@@ -2,8 +2,11 @@
 export const token = "a03d4118-2056-418e-8efc-0823108695ca";
 export const identificator = "cohort-48";
 export const baseUrl = "https://mesto.nomoreparties.co";
-// Попап картинки
-// export const photoPopup = document.querySelector(".popup_type_photo");
+
+export const phraseMistake = "Что-то пошло не так!\nПопробуйте ещё раз.";
+export const phraseLoginCorrect = "Вы успешно вошли!";
+export const phraseRegisterCorrect = "Вы успешно\nзарегистрировались!";
+
 // Попап удаления карточки
 export const popupDeleteSelector = ".popup_type_card-delete";
 // Попап изменения аватара

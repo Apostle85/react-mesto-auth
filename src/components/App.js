@@ -9,6 +9,7 @@ import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import api from "../utils/Api";
+import { phraseMistake, phraseLoginCorrect, phraseRegisterCorrect } from "../utils/constants";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
@@ -28,6 +29,7 @@ class App extends React.Component {
       isAddPlacePopupOpen: false,
       isEditAvatarPopupOpen: false,
       isInfoToolTipOpen: false,
+      messageInfoToolTip: '',
       isCorrect: false,
       selectedCard: {},
       currentUser: {},
@@ -186,6 +188,7 @@ class App extends React.Component {
         console.log(res);
         this.setState(
           {
+            messageInfoToolTip: phraseRegisterCorrect,
             isCorrect: true,
             isInfoToolTipOpen: true,
           },
@@ -194,13 +197,16 @@ class App extends React.Component {
           }
         );
       })
-      .catch((err) => console.log(err));
-    // } else {
-    // this.setState({
-    //   isCorrect: false,
-    //   isInfoToolTipOpen: true,
-    // });
-    // }
+      .catch((err) =>
+          this.setState(
+            {
+              messageInfoToolTip: phraseMistake,
+              isCorrect: false,
+              isInfoToolTipOpen: true,
+            },
+            () => console.log(err)
+          )
+        );
   };
 
   onLogin = (event, email, password) => {
@@ -213,8 +219,10 @@ class App extends React.Component {
           if (res.token) {
             this.setState(
               {
+                messageInfoToolTip: phraseLoginCorrect,
                 isCorrect: true,
                 isInfoToolTipOpen: true,
+                email: email,
                 loggedIn: true,
                 token: res.token,
               },
@@ -230,6 +238,7 @@ class App extends React.Component {
         .catch((err) =>
           this.setState(
             {
+              messageInfoToolTip: phraseMistake,
               isCorrect: false,
               isInfoToolTipOpen: true,
             },
@@ -238,6 +247,7 @@ class App extends React.Component {
         );
     } else {
       this.setState({
+        messageInfoToolTip: phraseMistake,
         isCorrect: false,
         isInfoToolTipOpen: true,
       });
@@ -254,11 +264,11 @@ class App extends React.Component {
         .loginByToken(token)
         .then((res) => {
           if (res) {
-            console.log(res);
+            console.log(res.data.email);
             this.setState(
               {
                 loggedIn: true,
-                email: res.email,
+                email: res.data.email,
               },
               () => {
                 this.props.history.push("/");
@@ -267,6 +277,7 @@ class App extends React.Component {
             );
           } else {
             this.setState({
+              messageInfoToolTip: phraseMistake,
               isCorrect: false,
               isInfoToolTipOpen: true,
             });
@@ -283,6 +294,7 @@ class App extends React.Component {
 
     this.setState(
       {
+        email:'',
         loggedIn: false,
       },
       () => {
@@ -329,6 +341,7 @@ class App extends React.Component {
             </Switch>
             {this.state.loggedIn && <Footer></Footer>}
             <InfoToolTip
+              message={this.state.messageInfoToolTip}
               onClose={this.closeAllPopups}
               isOpen={this.state.isInfoToolTipOpen}
               isCorrect={this.state.isCorrect}

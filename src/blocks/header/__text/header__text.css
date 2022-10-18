@@ -1,5 +1,5 @@
 .header__text {
-    margin: 0;
+    margin: 0 24px 0 0;
     font-family: 'Inter', "Arial", sans-serif;
     align-self: center;
     font-style: normal;
@@ -9,5 +9,4 @@
     color: #FFFFFF;
     text-align: right;
     transition: opacity 0.2s ease-in;
-    cursor: pointer;
 }

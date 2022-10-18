@@ -28,13 +28,7 @@ class InfoToolTip extends React.Component {
               }`}
             ></div>
             <h2 className="popup__subtitle popup__subtitle_position_center">
-              {this.props.location.pathname === "/sign-in"
-                ? this.props.isCorrect
-                  ? "Вы успешно\nзарегистрировались!"
-                  : "Что-то пошло не так!\nПопробуйте ещё раз."
-                : this.props.isCorrect
-                ? "Вы успешно вошли!"
-                : "Что-то пошло не так!\nПопробуйте ещё раз."}
+              {this.props.message}
             </h2>
           </div>
         </div>
